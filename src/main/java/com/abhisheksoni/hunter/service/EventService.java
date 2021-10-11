@@ -190,7 +190,7 @@ public class EventService {
         Set<Keyword> keywords = keywordService.getKeywords();
         Set<Keyword> selectedKeywords = new HashSet<>();
         for (String token : tokens) {
-            Optional<Keyword> optionalKeyword = keywordService.getKeyword(token);
+            Optional<Keyword> optionalKeyword = keywordService.getKeyword(token.replace("?", ""));
             if (optionalKeyword.isPresent()) {
                 Keyword keyword = optionalKeyword.get();
                 if (keywords.contains(keyword)) {
